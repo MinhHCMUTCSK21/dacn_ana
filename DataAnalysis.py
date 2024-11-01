@@ -54,6 +54,7 @@ def main():
         
         if option == "Upload CSV File (Under 200MB)":
             uploaded_file = st.file_uploader("Upload your CSV file here", type="csv")
+            st.session_state.df = None
         else:
             # Use a predefined DataFrame (example data)
             uploaded_file = None
@@ -87,8 +88,7 @@ def main():
         if st.button("Run query"):
             with st.spinner("Processing..."):
                 process_query(da_agent, query)
-    else:
-        st.write("### Please upload a CSV file or use our survey data to start using the tool.")
+    
     # Display chat history
     st.divider()
     display_chat_history()
