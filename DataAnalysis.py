@@ -87,7 +87,8 @@ def main():
         if st.button("Run query"):
             with st.spinner("Processing..."):
                 process_query(da_agent, query)
-
+    else:
+        st.write("### Please upload a CSV file or use our survey data to start using the tool.")
     # Display chat history
     st.divider()
     display_chat_history()
